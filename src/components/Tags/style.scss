@@ -40,3 +40,9 @@ $height: 22px;
         color: #fff;
     }
 }
+
+@media (max-width: 768px) {
+    .tags-scroll {
+        touch-action: pan-y;
+    }
+}

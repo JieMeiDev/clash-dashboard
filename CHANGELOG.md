@@ -6,6 +6,15 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.12] - 2026-06-15
+
+### Fixed
+
+- **Mobile Proxies:** page can scroll vertically again (strategy groups and proxy list)
+- Proxy group tags no longer block vertical swipe on iOS (`touch-action: pan-y`)
+
+---
+
 ## [0.1.11] - 2026-06-15
 
 ### Changed
