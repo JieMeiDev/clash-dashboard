@@ -6,6 +6,18 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.9] - 2026-06-15
+
+### Added
+
+- **Mobile Connections** page: show in top nav (label **Conns**), responsive table and full-width detail drawer
+
+### Changed
+
+- On small screens, Connections table hides Network / Chains / Rule / Type columns (tap a row for full details)
+
+---
+
 ## [0.1.8] - 2026-06-15
 
 ### Changed

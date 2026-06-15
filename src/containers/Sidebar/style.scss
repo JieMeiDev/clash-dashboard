@@ -127,9 +127,13 @@
             margin: 0 3px;
 
             > a {
-                width: 80px;
+                width: 68px;
                 height: 32px;
                 line-height: 32px;
+                font-size: 12px;
+                padding: 0 4px;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
         }
 

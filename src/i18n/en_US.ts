@@ -5,7 +5,7 @@ const EN = {
         Logs: 'Logs',
         Rules: 'Rules',
         Settings: 'Setting',
-        Connections: 'Connections',
+        Connections: 'Conns',
         Version: 'Version',
         About: 'About',
     },

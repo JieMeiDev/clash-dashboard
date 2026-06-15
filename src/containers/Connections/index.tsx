@@ -272,7 +272,7 @@ export default function Connections () {
     })
 
     return (
-        <div className="page !h-100vh">
+        <div className="page connections-page !h-100vh">
             <Header title={t('title')}>
                 <span className="connections-filter flex-1 cursor-default">
                     {`(${t('total.text')}: ${t('total.upload')} ${formatTraffic(traffic.uploadTotal)} ${t('total.download')} ${formatTraffic(traffic.downloadTotal)})`}
@@ -296,7 +296,7 @@ export default function Connections () {
                 </div>
             </Card>
             <Modal title={t('closeAll.title')} show={visible} onClose={hide} onOk={handleCloseConnections}>{t('closeAll.content')}</Modal>
-            <Drawer containerRef={cardRef} bodyClassName="flex flex-col" visible={drawerState.visible} width={450}>
+            <Drawer className="connections-drawer" containerRef={cardRef} bodyClassName="flex flex-col" visible={drawerState.visible} width={450}>
                 <div className="h-8 flex items-center justify-between">
                     <span className="pl-3 font-bold">{t('info.title')}</span>
                     <Icon type="close" size={16} className="cursor-pointer" onClick={() => setDrawerState('visible', false)} />
