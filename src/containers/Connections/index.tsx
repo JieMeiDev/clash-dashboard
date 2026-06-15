@@ -17,17 +17,19 @@ import { type Connection, type FormatConnection, useConnections } from './store'
 import './style.scss'
 
 const Columns = {
+    SourceIP: 'sourceIP',
     DestinationIP: 'destinationIP',
-    Network: 'network',
-    Type: 'type',
-    Chains: 'chains',
-    Rule: 'rule',
     Speed: 'speed',
     Upload: 'upload',
     Download: 'download',
-    SourceIP: 'sourceIP',
     Time: 'time',
+    Network: 'network',
+    Chains: 'chains',
+    Rule: 'rule',
+    Type: 'type',
 } as const
+
+const PINNED_COLUMN = Columns.SourceIP
 
 const shouldCenter = new Set<string>([Columns.Network, Columns.Type, Columns.Speed, Columns.Upload, Columns.Download, Columns.SourceIP, Columns.Time])
 
@@ -99,11 +101,8 @@ export default function Connections () {
     const intersection = useIntersectionObserver(pinRef, { threshold: [1] })
     const columns = useMemo(
         () => [
+            columnHelper.accessor(Columns.SourceIP, { minSize: 140, size: 140, header: t(`columns.${Columns.SourceIP}`), filterFn: 'equals' }),
             columnHelper.accessor(Columns.DestinationIP, { minSize: 260, size: 260, header: t(`columns.${Columns.DestinationIP}`) }),
-            columnHelper.accessor(Columns.Network, { minSize: 80, size: 80, header: t(`columns.${Columns.Network}`) }),
-            columnHelper.accessor(Columns.Type, { minSize: 100, size: 100, header: t(`columns.${Columns.Type}`) }),
-            columnHelper.accessor(Columns.Chains, { minSize: 200, size: 200, header: t(`columns.${Columns.Chains}`) }),
-            columnHelper.accessor(Columns.Rule, { minSize: 140, size: 140, header: t(`columns.${Columns.Rule}`) }),
             columnHelper.accessor(
                 row => [row.speed.upload, row.speed.download],
                 {
@@ -124,7 +123,6 @@ export default function Connections () {
             ),
             columnHelper.accessor(Columns.Upload, { minSize: 100, size: 100, header: t(`columns.${Columns.Upload}`), cell: cell => formatTraffic(cell.getValue()) }),
             columnHelper.accessor(Columns.Download, { minSize: 100, size: 100, header: t(`columns.${Columns.Download}`), cell: cell => formatTraffic(cell.getValue()) }),
-            columnHelper.accessor(Columns.SourceIP, { minSize: 140, size: 140, header: t(`columns.${Columns.SourceIP}`), filterFn: 'equals' }),
             columnHelper.accessor(
                 Columns.Time,
                 {
@@ -135,6 +133,10 @@ export default function Connections () {
                     sortingFn: (rowA, rowB) => (rowB.original?.time ?? 0) - (rowA.original?.time ?? 0),
                 },
             ),
+            columnHelper.accessor(Columns.Network, { minSize: 80, size: 80, header: t(`columns.${Columns.Network}`) }),
+            columnHelper.accessor(Columns.Chains, { minSize: 200, size: 200, header: t(`columns.${Columns.Chains}`) }),
+            columnHelper.accessor(Columns.Rule, { minSize: 140, size: 140, header: t(`columns.${Columns.Rule}`) }),
+            columnHelper.accessor(Columns.Type, { minSize: 100, size: 100, header: t(`columns.${Columns.Type}`) }),
         ],
         [lang, t],
     )
@@ -167,7 +169,7 @@ export default function Connections () {
         getSortedRowModel: getSortedRowModel(),
         getFilteredRowModel: getFilteredRowModel(),
         initialState: {
-            sorting: [{ id: Columns.Time, desc: false }],
+            sorting: [{ id: Columns.Time, desc: true }],
         },
         columnResizeMode: 'onChange',
         enableColumnResizing: true,
@@ -215,11 +217,11 @@ export default function Connections () {
             <th
                 className={classnames('connections-th', {
                     resizing: column.getIsResizing(),
-                    fixed: column.id === Columns.DestinationIP,
-                    shadow: scrolled && column.id === Columns.DestinationIP,
+                    fixed: column.id === PINNED_COLUMN,
+                    shadow: scrolled && column.id === PINNED_COLUMN,
                 })}
                 style={{ width: header.getSize() }}
-                ref={column.id === Columns.DestinationIP ? pinRef : undefined}
+                ref={column.id === PINNED_COLUMN ? pinRef : undefined}
                 key={id}>
                 <div onClick={column.getToggleSortingHandler()}>
                     { flexRender(header.column.columnDef.header, header.getContext()) }
@@ -251,8 +253,8 @@ export default function Connections () {
                             'connections-block',
                             { 'text-center': shouldCenter.has(cell.column.id), completed: row.original?.completed },
                             {
-                                fixed: cell.column.id === Columns.DestinationIP,
-                                shadow: scrolled && cell.column.id === Columns.DestinationIP,
+                                fixed: cell.column.id === PINNED_COLUMN,
+                                shadow: scrolled && cell.column.id === PINNED_COLUMN,
                             },
                         )
                         return (

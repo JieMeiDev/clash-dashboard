@@ -6,6 +6,16 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.8] - 2026-06-15
+
+### Changed
+
+- **Connections** column order optimized for transparent-proxy production use: Source IP → Destination IP → Speed → Upload → Download → Time → Network → Chains → Rule → Type
+- Source IP is now the pinned (fixed) column when scrolling horizontally
+- Default sort changed to **Time** descending (newest first)
+
+---
+
 ## [0.1.7] - 2026-06-15
 
 ### Changed
