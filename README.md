@@ -39,15 +39,18 @@
 
 从 [Releases](https://github.com/JieMeiDev/clash-dashboard/releases) 下载 **`clash-dashboard-x.x.x-dist.zip`**（预编译静态包，**无需 Node、无需 build**）：
 
-1. 解压 zip
-2. 将解压出的**所有文件**（`index.html`、`assets/`、`sw.js` 等）上传到 Clash 的 external-ui 目录，例如 `/root/.config/clash/ui/db3/`
-3. 在 `config.yaml` 中设置 `external-ui: ui/db3`（路径与目录名一致即可）
+1. 解压 zip 到 Clash 的 **`ui` 目录**（例如 `/root/.config/clash/ui/`）
+2. 解压后该目录下应直接有 `index.html`、`assets/`、`sw.js` 等（不要多一层 `dist/` 文件夹）
+3. 在 `config.yaml` 中设置 `external-ui: ui`
 4. 浏览器访问 Clash External Controller；若连不上，检查 `secret` / 端口
 
 ```bash
-# 示例：上传到 OpenWrt / 路由器
+# 示例：在路由器上解压（SSH 登录后）
+unzip clash-dashboard-0.1.17-dist.zip -d /root/.config/clash/ui/
+
+# 或从本机 scp 上传已解压的文件
 scp -O -r index.html assets sw.js workbox-*.js manifest.webmanifest icon.png logo.png \
-  root@192.168.1.1:/root/.config/clash/ui/db3/
+  root@192.168.1.1:/root/.config/clash/ui/
 ```
 
 > **注意：** Release 里的 **Source code** 是源码，不能直接放进 ui 目录使用；请下载带 **`-dist.zip`** 的静态包。
@@ -76,14 +79,14 @@ pnpm build
 
 ```bash
 pnpm build
-scp -O -r dist/* root@192.168.1.1:/root/.config/clash/ui/db3/
+scp -O -r dist/* root@192.168.1.1:/root/.config/clash/ui/
 ```
 
 或使用上级目录同步脚本（目录布局为 `clashdb/clash-dashboard/` 时）：
 
 ```bash
 ./scripts/deploy-local.sh
-scp -O -r ../clashdb/* root@192.168.1.1:/root/.config/clash/ui/db3/
+scp -O -r ../clashdb/* root@192.168.1.1:/root/.config/clash/ui/
 ```
 
 ## LICENSE

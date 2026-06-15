@@ -17,4 +17,4 @@ rm -f "$OUT"
 (cd dist && zip -r "$OUT" .)
 
 echo "Created: $OUT"
-echo "Upload contents to Clash external-ui directory (e.g. ui/db3/)"
+echo "Extract or upload contents to Clash ui/ directory (e.g. /root/.config/clash/ui/)"

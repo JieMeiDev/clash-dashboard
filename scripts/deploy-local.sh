@@ -16,4 +16,4 @@ rsync -av --delete --exclude='clash-dashboard' "$ROOT/dist/" "$DEPLOY_DIR/"
 
 echo "Built and synced to: $DEPLOY_DIR"
 echo "Deploy to router:"
-echo "  scp -O -r $DEPLOY_DIR/* root@192.168.1.1:/root/.config/clash/ui/db3/"
+echo "  scp -O -r $DEPLOY_DIR/* root@192.168.1.1:/root/.config/clash/ui/"
