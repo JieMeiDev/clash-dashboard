@@ -16,8 +16,6 @@
     </a>
 </p>
 
-> Custom fork based on the last upstream [Dreamacro/clash-dashboard](https://github.com/Dreamacro/clash-dashboard) release (archived mirror: [chmod777john/clash-dashboard](https://github.com/chmod777john/clash-dashboard)).
-
 ## Custom changes (0.1.1)
 
 - Remove **Process** column on Connections (meaningless for transparent proxy)
