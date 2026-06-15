@@ -7,7 +7,7 @@ Fork 自 [chmod777john/clash-dashboard](https://github.com/chmod777john/clash-da
 
 ---
 
-## [0.1.0-custom.1] - 2026-06-15
+## [0.1.1] - 2026-06-15
 
 ### 移除
 
@@ -21,7 +21,7 @@ Fork 自 [chmod777john/clash-dashboard](https://github.com/chmod777john/clash-da
 
 ### 说明
 
-- 基线版本：官方 `0.1.0`（`9a32d9d`，2023-09-26）
+- 基于官方 `0.1.0`（`9a32d9d`，2023-09-26）
 - Git：`2a57b4a`
 
 ---
