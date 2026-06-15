@@ -8,6 +8,16 @@ const CN = {
         Connections: '连接',
         Version: '版本',
     },
+    Overview: {
+        title: '总览',
+        upload: '上传',
+        download: '下载',
+        uploadTotal: '上传总量',
+        downloadTotal: '下载总量',
+        activeConnections: '活跃连接',
+        chartUp: '上传',
+        chartDown: '下载',
+    },
     Settings: {
         title: '设置',
         labels: {

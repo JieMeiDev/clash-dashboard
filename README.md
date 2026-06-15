@@ -12,7 +12,7 @@
         <img src="https://img.shields.io/github/actions/workflow/status/JieMeiDev/clash-dashboard/ghpages.yml?branch=master&style=flat-square" alt="Github Actions">
     </a>
     <a href="https://github.com/JieMeiDev/clash-dashboard/blob/master/CHANGELOG.md">
-        <img src="https://img.shields.io/badge/version-0.1.1-blue?style=flat-square" alt="Version">
+        <img src="https://img.shields.io/badge/version-0.1.2-blue?style=flat-square" alt="Version">
     </a>
 </p>
 
@@ -24,8 +24,9 @@
 - 与 Dreamacro 及原官方项目无隶属关系
 - 变更记录见 [CHANGELOG.md](./CHANGELOG.md)
 
-## 定制说明（v0.1.1）
+## 定制说明（v0.1.2）
 
+- **Overview 总览**：实时上下行、总量、活跃连接数、流量曲线（类似 yacd）
 - 移除 Connections 页 **Process** 列（透明代理无法获取进程信息）
 - 支持 **macOS 暗黑模式**（跟随系统 `prefers-color-scheme`）
 

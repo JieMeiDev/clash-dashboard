@@ -4,6 +4,15 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.2] - 2026-06-15
+
+### Added
+
+- **Overview** page with real-time upload/download speed, traffic totals, active connection count, and traffic chart (via Clash `/traffic` and `/connections` WebSockets)
+- Overview set as the default landing page
+
+---
+
 ## [0.1.1] - 2026-06-15
 
 ### Removed

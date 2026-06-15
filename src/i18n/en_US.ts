@@ -1,5 +1,5 @@
 const EN = {
-    SideBar: {
+    Proxies: {
         Proxies: 'Proxies',
         Overview: 'Overview',
         Logs: 'Logs',
@@ -7,6 +7,16 @@ const EN = {
         Settings: 'Setting',
         Connections: 'Connections',
         Version: 'Version',
+    },
+    Overview: {
+        title: 'Overview',
+        upload: 'Upload',
+        download: 'Download',
+        uploadTotal: 'Upload Total',
+        downloadTotal: 'Download Total',
+        activeConnections: 'Active Connections',
+        chartUp: 'Up',
+        chartDown: 'Down',
     },
     Settings: {
         title: 'Settings',

@@ -291,3 +291,21 @@ export function useConnectionStreamReader () {
 
     return connection.current
 }
+
+const trafficAtom = atom(new StreamReader<API.Traffic>({ bufferLength: 150 }))
+
+export function useTrafficStreamReader () {
+    const apiInfo = useAPIInfo()
+    const item = useAtomValue(trafficAtom)
+
+    const apiInfoRef = useSyncedRef(apiInfo)
+
+    useEffect(() => {
+        const info = apiInfoRef.current
+        const protocol = info.protocol === 'http:' ? 'ws:' : 'wss:'
+        const url = `${protocol}//${info.hostname}:${info.port}/traffic?token=${encodeURIComponent(info.secret)}`
+        item.connect(url)
+    }, [apiInfoRef, item, apiInfo.hostname, apiInfo.port, apiInfo.protocol, apiInfo.secret])
+
+    return item
+}

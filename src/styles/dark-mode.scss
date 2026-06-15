@@ -378,6 +378,40 @@
     border-color: rgba(72, 72, 74, var(--un-divide-opacity)) !important;
   }
 
+  .overview-stat-label,
+  .overview-chart-legend {
+    color: #aeaeb2;
+  }
+
+  .overview-stat-value {
+    color: #64b5ff;
+  }
+
+  .overview-chart-grid {
+    stroke: rgba(174, 174, 178, 0.18);
+  }
+
+  .overview-chart-axis {
+    fill: #8e8e93;
+  }
+
+  .overview-chart-up-line {
+    stroke: #64b5ff;
+  }
+
+  .overview-chart-down-area {
+    fill: rgba(103, 194, 58, 0.28);
+    stroke: #86efac;
+  }
+
+  .overview-chart-legend-up::before {
+    background: #64b5ff;
+  }
+
+  .overview-chart-legend-down::before {
+    background: #86efac;
+  }
+
   @media (max-width: 768px) {
     .sidebar {
       background: #2c2c2e;
