@@ -26,26 +26,6 @@ export interface Config {
         redirPort?: number
 
         /**
-         * proxy is allow lan
-         */
-        allowLan?: boolean
-
-        /**
-         * controller port
-         */
-        externalControllerPort?: string
-
-        /**
-         * controller address
-         */
-        externalControllerAddr?: string
-
-        /**
-         * controller secret
-         */
-        secret?: string
-
-        /**
          * clash proxy mode
          */
         mode?: string
@@ -89,11 +69,6 @@ export interface Data {
          * tproxy port
          */
         tproxyPort?: number
-
-        /**
-         * proxy is allow lan
-         */
-        allowLan: boolean
 
         /**
          * clash proxy mode

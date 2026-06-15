@@ -28,9 +28,6 @@ const EN = {
     Settings: {
         title: 'Settings',
         labels: {
-            startAtLogin: 'Start at login',
-            setAsSystemProxy: 'Set as system proxy',
-            allowConnectFromLan: 'Allow connect from Lan',
             proxyMode: 'Mode',
             socks5ProxyPort: 'Socks5 proxy port',
             httpProxyPort: 'HTTP proxy port',

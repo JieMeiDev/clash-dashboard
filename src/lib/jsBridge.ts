@@ -108,24 +108,8 @@ export class JsBridge {
         return await this.callHandler('writeConfigWithString', data)
     }
 
-    public async setSystemProxy (data: boolean) {
-        return await this.callHandler('setSystemProxy', data)
-    }
-
-    public async getStartAtLogin () {
-        return await this.callHandler<boolean>('getStartAtLogin')
-    }
-
     public async getProxyDelay (name: string) {
         return await this.callHandler<number>('speedTest', name)
-    }
-
-    public async setStartAtLogin (data: boolean) {
-        return await this.callHandler<boolean>('setStartAtLogin', data)
-    }
-
-    public async isSystemProxySet () {
-        return await this.callHandler<boolean>('isSystemProxySet')
     }
 }
 

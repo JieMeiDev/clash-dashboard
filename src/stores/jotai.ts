@@ -134,7 +134,6 @@ export function useGeneral () {
             tproxyPort: data['tproxy-port'] ?? 0,
             mode: data.mode.toLowerCase() as Models.Data['general']['mode'],
             logLevel: data['log-level'],
-            allowLan: data['allow-lan'],
         } as Models.Data['general']
     })
 
@@ -215,20 +214,9 @@ export const proxyMapping = atom((get) => {
 })
 
 export function useClashXData () {
-    const { data, mutate } = useSWR('/clashx', async () => {
-        if (!isClashX()) {
-            return {
-                isClashX: false,
-                startAtLogin: false,
-                systemProxy: false,
-            }
-        }
-
-        const startAtLogin = await jsBridge?.getStartAtLogin() ?? false
-        const systemProxy = await jsBridge?.isSystemProxySet() ?? false
-
-        return { startAtLogin, systemProxy, isClashX: true }
-    })
+    const { data, mutate } = useSWR('/clashx', async () => ({
+        isClashX: isClashX(),
+    }))
 
     return { data, update: mutate }
 }

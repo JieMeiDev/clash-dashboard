@@ -6,6 +6,16 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.6] - 2026-06-15
+
+### Removed
+
+- **Start at login**, **Set as system proxy**, and **Allow connect from Lan** from Settings — not applicable to transparent-proxy / router deployments
+- ClashX jsBridge handlers for system proxy and start-at-login
+- `allow-lan` read/write from the dashboard
+
+---
+
 ## [0.1.5] - 2026-06-15
 
 ### Added

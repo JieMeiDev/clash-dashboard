@@ -2,15 +2,14 @@ import classnames from 'classnames'
 import { useAtom, useAtomValue, useSetAtom } from 'jotai'
 import { useEffect, useMemo } from 'react'
 
-import { Header, Card, Switch, ButtonSelect, Input, Select } from '@components'
+import { Header, Card, ButtonSelect, Input, Select } from '@components'
 import { useObject } from '@lib/hook'
-import { jsBridge } from '@lib/jsBridge'
 import { useI18n, useClashXData, useGeneral, useVersion, useClient, identityAtom, hostSelectIdxStorageAtom, hostsStorageAtom, useAPIInfo } from '@stores'
 import './style.scss'
 
 export default function Settings () {
     const { premium } = useVersion()
-    const { data: clashXData, update: fetchClashXData } = useClashXData()
+    const { data: clashXData } = useClashXData()
     const { general, update: fetchGeneral } = useGeneral()
     const setIdentity = useSetAtom(identityAtom)
     const [hostSelectIdx, setHostSelectIdx] = useAtom(hostSelectIdxStorageAtom)
@@ -40,16 +39,6 @@ export default function Settings () {
         await fetchGeneral()
     }
 
-    async function handleStartAtLoginChange (state: boolean) {
-        await jsBridge?.setStartAtLogin(state)
-        await fetchClashXData()
-    }
-
-    async function handleSetSystemProxy (state: boolean) {
-        await jsBridge?.setSystemProxy(state)
-        await fetchClashXData()
-    }
-
     async function handleHttpPortSave () {
         await client.updateConfig({ port: info.httpProxyPort })
         await fetchGeneral()
@@ -75,20 +64,12 @@ export default function Settings () {
         await fetchGeneral()
     }
 
-    async function handleAllowLanChange (state: boolean) {
-        await client.updateConfig({ 'allow-lan': state })
-        await fetchGeneral()
-    }
-
     const {
         hostname: externalControllerHost,
         port: externalControllerPort,
     } = apiInfo
 
-    const { allowLan, mode } = general
-
-    const startAtLogin = clashXData?.startAtLogin ?? false
-    const systemProxy = clashXData?.systemProxy ?? false
+    const { mode } = general
     const isClashX = clashXData?.isClashX ?? false
 
     const proxyModeOptions = useMemo(() => {
@@ -128,27 +109,6 @@ export default function Settings () {
     return (
         <div className="page">
             <Header title={t('title')} />
-            <Card className="settings-card">
-                <div className="flex flex-wrap">
-                    <div className="w-full flex items-center justify-between px-8 py-3 md:w-1/2">
-                        <span className="label font-bold">{t('labels.startAtLogin')}</span>
-                        <Switch disabled={!clashXData?.isClashX} checked={startAtLogin} onChange={handleStartAtLoginChange} />
-                    </div>
-                    <div className="w-full flex items-center justify-between px-8 py-3 md:w-1/2">
-                        <span className="label font-bold">{t('labels.setAsSystemProxy')}</span>
-                        <Switch
-                            disabled={!isClashX}
-                            checked={systemProxy}
-                            onChange={handleSetSystemProxy}
-                        />
-                    </div>
-                    <div className="w-full flex items-center justify-between px-8 py-3 md:w-1/2">
-                        <span className="label font-bold">{t('labels.allowConnectFromLan')}</span>
-                        <Switch checked={allowLan} onChange={handleAllowLanChange} />
-                    </div>
-                </div>
-            </Card>
-
             <Card className="settings-card">
                 <div className="flex flex-wrap">
                     <div className="w-full flex items-center justify-between px-8 py-3 md:w-1/2">
@@ -224,13 +184,6 @@ export default function Settings () {
                     <div className="w-1/2 px-8"></div>
                 </div>
             </Card>
-            {/* <Card className="clash-version hidden">
-                <span className="check-icon">
-                    <Icon type="check" size={20} />
-                </span>
-                <p className="version-info">{t('versionString')}</p>
-                <span className="check-update-btn">{t('checkUpdate')}</span>
-            </Card> */}
         </div>
     )
 }
