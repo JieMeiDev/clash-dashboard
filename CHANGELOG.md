@@ -4,6 +4,15 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.4] - 2026-06-15
+
+### Added
+
+- **About** page showing Clash core version and Clash Dashboard version with GitHub source links
+- About entry (info icon) in the sidebar footer
+
+---
+
 ## [0.1.3] - 2026-06-15
 
 ### Removed

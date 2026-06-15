@@ -73,6 +73,29 @@
     color: $color-primary-darken;
 }
 
+.sidebar-footer {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 16px;
+}
+
+.sidebar-about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: $color-gray-darken;
+    text-decoration: none;
+
+    &.active,
+    &:hover {
+        color: $color-primary-dark;
+        background: rgba($color-primary, 0.12);
+    }
+}
+
 @media (max-width: 768px) {
     .sidebar {
         width: 100%;
@@ -116,6 +139,10 @@
     }
 
     .sidebar-version {
+        display: none;
+    }
+
+    .sidebar-footer {
         display: none;
     }
 }

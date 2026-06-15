@@ -412,6 +412,36 @@
     background: #86efac;
   }
 
+  .about-block-title {
+    color: #e5e5ea;
+  }
+
+  .about-block-line {
+    color: #aeaeb2;
+  }
+
+  .about-block-version {
+    color: #64b5ff;
+  }
+
+  .about-block-link {
+    color: #aeaeb2;
+
+    &:hover {
+      color: #64b5ff;
+    }
+  }
+
+  .sidebar-about {
+    color: #aeaeb2;
+
+    &.active,
+    &:hover {
+      color: #64b5ff;
+      background: rgba(100, 181, 255, 0.15);
+    }
+  }
+
   @media (max-width: 768px) {
     .sidebar {
       background: #2c2c2e;

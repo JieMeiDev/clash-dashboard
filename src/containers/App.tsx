@@ -1,6 +1,7 @@
 import classnames from 'classnames'
 import { Route, Navigate, Routes, useLocation, Outlet } from 'react-router-dom'
 
+import About from '@containers/About'
 import Overview from '@containers/Overview'
 import Connections from '@containers/Connections'
 import ExternalControllerModal from '@containers/ExternalControllerDrawer'
@@ -28,6 +29,7 @@ export default function App () {
         { path: '/rules', name: 'Rules', element: <Rules />, noMobile: true },
         { path: '/connections', name: 'Connections', element: <Connections />, noMobile: true },
         { path: '/settings', name: 'Settings', element: <Settings /> },
+        { path: '/about', name: 'About', element: <About />, footerOnly: true },
     ]
 
     const layout = (
