@@ -35,6 +35,25 @@
 - 移除 Process 列及不适用的 Settings 开关（透明代理 / 路由器场景）
 - About 页：Clash 源码指向 [JieMeiDev/clash](https://github.com/JieMeiDev/clash)
 
+## 下载部署（推荐）
+
+从 [Releases](https://github.com/JieMeiDev/clash-dashboard/releases) 下载 **`clash-dashboard-x.x.x-dist.zip`**（预编译静态包，**无需 Node、无需 build**）：
+
+1. 解压 zip
+2. 将解压出的**所有文件**（`index.html`、`assets/`、`sw.js` 等）上传到 Clash 的 external-ui 目录，例如 `/root/.config/clash/ui/db3/`
+3. 在 `config.yaml` 中设置 `external-ui: ui/db3`（路径与目录名一致即可）
+4. 浏览器访问 Clash External Controller；若连不上，检查 `secret` / 端口
+
+```bash
+# 示例：上传到 OpenWrt / 路由器
+scp -O -r index.html assets sw.js workbox-*.js manifest.webmanifest icon.png logo.png \
+  root@192.168.1.1:/root/.config/clash/ui/db3/
+```
+
+> **注意：** Release 里的 **Source code** 是源码，不能直接放进 ui 目录使用；请下载带 **`-dist.zip`** 的静态包。
+
+部署后若样式未更新，硬刷新或清除 Service Worker 缓存。
+
 ## 开发
 
 ```bash
@@ -51,13 +70,21 @@ pnpm build
 ./scripts/deploy-local.sh
 ```
 
-## 部署到路由器
+## 部署到路由器（开发者）
+
+若已本地 build，可直接上传 `dist/` 内容：
 
 ```bash
-scp -O -r ../clashdb/* root@192.168.1.1:/root/.config/clash/ui/db3/
+pnpm build
+scp -O -r dist/* root@192.168.1.1:/root/.config/clash/ui/db3/
 ```
 
-部署后若样式未更新，硬刷新或清除 Service Worker 缓存。
+或使用上级目录同步脚本（目录布局为 `clashdb/clash-dashboard/` 时）：
+
+```bash
+./scripts/deploy-local.sh
+scp -O -r ../clashdb/* root@192.168.1.1:/root/.config/clash/ui/db3/
+```
 
 ## LICENSE
 
