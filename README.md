@@ -16,12 +16,18 @@
     </a>
 </p>
 
-## Custom changes (0.1.1)
+## 声明
 
-- Remove **Process** column on Connections (meaningless for transparent proxy)
-- **macOS dark mode** via `prefers-color-scheme`
+本仓库由 **[JieMeiDev](https://github.com/JieMeiDev)** 维护，用于 Clash External Controller 的 Web 管理。
 
-See [CHANGELOG.md](./CHANGELOG.md) for details.
+- 基于官方 Clash Dashboard 最后公开版本（0.1.0）二次开发，当前 **v0.1.1**
+- 与 Dreamacro 及原官方项目无隶属关系
+- 变更记录见 [CHANGELOG.md](./CHANGELOG.md)
+
+## 定制说明（v0.1.1）
+
+- 移除 Connections 页 **Process** 列（透明代理无法获取进程信息）
+- 支持 **macOS 暗黑模式**（跟随系统 `prefers-color-scheme`）
 
 ## Features
 
