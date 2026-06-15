@@ -8,6 +8,16 @@
     <meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
     <meta name="description" content="Clash web port" />
+    <script>
+      (function () {
+        var key = 'clash-dashboard-theme';
+        var pref = localStorage.getItem(key) || 'auto';
+        if (pref === 'system') pref = 'auto';
+        if (pref !== 'light' && pref !== 'dark' && pref !== 'auto') pref = 'auto';
+        document.documentElement.dataset.theme = pref;
+        document.documentElement.style.colorScheme = pref === 'auto' ? 'light dark' : pref;
+      })();
+    </script>
     <!--meta name="external-controller" content="http://secret@example.com:9090"-->
     <title>Clash</title>
   </head>

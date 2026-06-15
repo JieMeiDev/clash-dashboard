@@ -4,6 +4,7 @@ import { useRef, useEffect, useState, useMemo } from 'react'
 import { useImmer } from 'use-immer'
 
 import { noop } from '@lib/helper'
+import { applyTheme, getStoredTheme, setStoredTheme } from '@lib/theme'
 
 export function useObject<T extends Record<string, unknown>> (initialValue: T) {
     const [copy, rawSet] = useImmer(initialValue)
@@ -100,4 +101,28 @@ export function useMediaQuery (query: string) {
     }, [query])
 
     return matches
+}
+
+export function useTheme () {
+    const [preference, setPreferenceState] = useState(
+        () => getStoredTheme(),
+    )
+
+    useEffect(() => {
+        applyTheme(preference)
+        if (preference !== 'auto') {
+            return
+        }
+        const mq = window.matchMedia('(prefers-color-scheme: dark)')
+        const onSystemChange = () => applyTheme('auto')
+        mq.addEventListener('change', onSystemChange)
+        return () => mq.removeEventListener('change', onSystemChange)
+    }, [preference])
+
+    function setPreference (next: Parameters<typeof setStoredTheme>[0]) {
+        setStoredTheme(next)
+        setPreferenceState(next)
+    }
+
+    return { preference, setPreference }
 }

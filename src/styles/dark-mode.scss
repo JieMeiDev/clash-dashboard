@@ -1,4 +1,5 @@
-@media (prefers-color-scheme: dark) {
+@mixin dashboard-dark-mode {
+
   :root {
     color-scheme: dark;
   }
@@ -350,15 +351,6 @@
     box-shadow: 0 2px 8px rgba(10, 132, 255, 0.35);
   }
 
-  .sidebar-version-label {
-    color: #64b5ff;
-    text-shadow: 0 2px 6px rgba(100, 181, 255, 0.25);
-  }
-
-  .sidebar-version-text {
-    color: #aeaeb2;
-  }
-
   .clash-iconfont {
     color: #64b5ff;
   }
@@ -465,5 +457,16 @@
     .sidebar {
       background: #000;
     }
+  }
+
+}
+
+html[data-theme="dark"] {
+  @include dashboard-dark-mode;
+}
+
+html[data-theme="auto"] {
+  @media (prefers-color-scheme: dark) {
+    @include dashboard-dark-mode;
   }
 }

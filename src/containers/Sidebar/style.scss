@@ -52,30 +52,11 @@
     }
 }
 
-.sidebar-version {
+.sidebar-footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-bottom: 20px;
-}
-
-.sidebar-version-label {
-    font-size: 14px;
-    color: $color-primary-dark;
-    text-shadow: 0 2px 6px rgba($color: $color-primary-dark, $alpha: 0.4);
-}
-
-.sidebar-version-text {
-    text-align: center;
-    font-size: 14px;
-    margin: 8px 0;
-    padding: 0 10px;
-    color: $color-primary-darken;
-}
-
-.sidebar-footer {
-    display: flex;
-    justify-content: center;
+    gap: 4px;
     padding-bottom: 16px;
 }
 
@@ -142,11 +123,16 @@
         }
     }
 
-    .sidebar-version {
-        display: none;
+    .sidebar-footer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2px;
+        padding: 0 6px 0 0;
+        flex-shrink: 0;
     }
 
-    .sidebar-footer {
+    .sidebar-about {
         display: none;
     }
 }

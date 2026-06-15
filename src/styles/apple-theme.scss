@@ -44,7 +44,8 @@ body {
   font-weight: 500;
 }
 
-@media (prefers-color-scheme: light) {
+@mixin apple-light-theme {
+
   html {
     background: #f2f2f7;
   }
@@ -94,9 +95,21 @@ body {
     background: #007aff;
     box-shadow: none;
   }
+
 }
 
-@media (prefers-color-scheme: dark) {
+html[data-theme="light"] {
+  @include apple-light-theme;
+}
+
+html[data-theme="auto"] {
+  @media (prefers-color-scheme: light) {
+    @include apple-light-theme;
+  }
+}
+
+@mixin apple-dark-theme {
+
   html,
   .app.not-clashx,
   .page-container {
@@ -146,7 +159,6 @@ body {
 
   .connections-filter,
   .proxies-speed-test,
-  .sidebar-version-label,
   .modal-mask .modal .modal-title {
     text-shadow: none;
     color: #0a84ff;
@@ -228,7 +240,6 @@ body {
     box-shadow: none;
   }
 
-  .sidebar-version-label,
   .clash-iconfont {
     color: #0a84ff;
     text-shadow: none;
@@ -241,6 +252,24 @@ body {
 
   .settings-card .external-controller.modify-btn {
     color: #0a84ff;
+  }
+
+  .sidebar-theme-trigger {
+    color: #bebebe;
+  }
+
+  .sidebar-theme-menu {
+    background: #111;
+    color: #ddd;
+    border-color: #555;
+  }
+
+  .sidebar-theme-menu-item {
+    &:hover,
+    &:focus-visible {
+      background: #0a84ff;
+      color: #f7f7f7;
+    }
   }
 
   .logs-card.card {
@@ -283,5 +312,16 @@ body {
       background: rgba(10, 132, 255, 0.22);
       color: #0a84ff;
     }
+  }
+
+}
+
+html[data-theme="dark"] {
+  @include apple-dark-theme;
+}
+
+html[data-theme="auto"] {
+  @media (prefers-color-scheme: dark) {
+    @include apple-dark-theme;
   }
 }

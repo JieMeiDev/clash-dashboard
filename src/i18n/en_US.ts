@@ -8,6 +8,10 @@ const EN = {
         Connections: 'Conns',
         Version: 'Version',
         About: 'About',
+        switchTheme: 'Switch theme',
+        themeLight: 'Light',
+        themeDark: 'Dark',
+        themeAuto: 'Auto',
     },
     About: {
         title: 'About',

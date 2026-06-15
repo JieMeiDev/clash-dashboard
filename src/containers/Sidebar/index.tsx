@@ -3,8 +3,11 @@ import { NavLink, useLocation } from 'react-router-dom'
 
 import logo from '@assets/logo.png'
 import { type LocalizedType } from '@i18n'
-import { useI18n, useVersion, useClashXData } from '@stores'
+import { useI18n } from '@stores'
+
+import ThemeSwitcher from './ThemeSwitcher'
 import './style.scss'
+import './theme-switcher.scss'
 
 interface SidebarProps {
     routes: Array<{
@@ -18,8 +21,6 @@ interface SidebarProps {
 export default function Sidebar (props: SidebarProps) {
     const { routes } = props
     const { translation } = useI18n()
-    const { version, premium } = useVersion()
-    const { data } = useClashXData()
     const { t } = translation('SideBar')
     const location = useLocation()
 
@@ -39,12 +40,8 @@ export default function Sidebar (props: SidebarProps) {
             <ul className="sidebar-menu">
                 { navlinks }
             </ul>
-            <div className="sidebar-version">
-                <span className="sidebar-version-label">Clash{ data?.isClashX && 'X' } { t('Version') }</span>
-                <span className="sidebar-version-text">{ version }</span>
-                { premium && <span className="sidebar-version-label">Premium</span> }
-            </div>
             <div className="sidebar-footer">
+                <ThemeSwitcher />
                 <NavLink
                     to={{ pathname: '/about', search: location.search }}
                     className={({ isActive }) => classnames('sidebar-about', { active: isActive })}

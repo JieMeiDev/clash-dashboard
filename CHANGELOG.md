@@ -6,6 +6,35 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.15] - 2026-06-16
+
+### Added
+
+- **Theme switcher** in sidebar footer (YACD-style): single icon button opens Auto / Dark / Light menu with checkmark on the active choice
+- Theme preference persisted in `localStorage`; **Auto** follows system `prefers-color-scheme`
+
+### Changed
+
+- Removed sidebar **Clash Version** label (version remains on **About** page)
+- Sidebar footer now groups theme switcher and About icon, matching YACD layout
+
+---
+
+## [0.1.14] - 2026-06-16
+
+### Added
+
+- **Apple HIG** theme layer (`apple-theme.scss`): iOS Settings–style typography, colors, and grouped cards
+
+### Changed
+
+- Dark mode: pure black page background (`#000`) with `#1c1c1e` grouped cards on Connections and Logs
+- Unified Connections table colors (header, fixed column, and card share one surface)
+- Logs panel uses transparent inner background inside the card container
+- Card radius 12px; header large-title style
+
+---
+
 ## [0.1.13] - 2026-06-15
 
 ### Fixed
