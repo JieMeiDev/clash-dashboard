@@ -1,7 +1,7 @@
 {
     "name": "clash-dashboard",
     "version": "0.1.1",
-    "description": "Clash Web Dashboard · JieMeiDev 定制版 v0.1.1",
+    "description": "Clash Web Dashboard · v0.1.1. Based on the final official release, with dark mode and Connections page optimizations.",
     "keywords": [
         "clash",
         "dashboard"
