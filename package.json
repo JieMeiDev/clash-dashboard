@@ -19,6 +19,7 @@
     "scripts": {
         "start": "vite",
         "build": "vite build",
+        "deploy:local": "bash scripts/deploy-local.sh",
         "lint": "pnpm lint:ts",
         "lint:ts": "eslint --ext=jsx,ts,tsx --fix src",
         "contributors:add": "all-contributors add",

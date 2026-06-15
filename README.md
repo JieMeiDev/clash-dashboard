@@ -5,74 +5,57 @@
     <br>
 </h1>
 
-<h4 align="center">Web Dashboard for Clash, now host on ClashX</h4>
+<h4 align="center">Web Dashboard for Clash External Controller</h4>
 
 <p align="center">
-    <a href="https://github.com/JieMeiDev/clash-dashboard/actions">
-        <img src="https://img.shields.io/github/actions/workflow/status/JieMeiDev/clash-dashboard/ghpages.yml?branch=master&style=flat-square" alt="Github Actions">
+    <a href="https://github.com/JieMeiDev/clash-dashboard/releases">
+        <img src="https://img.shields.io/github/v/release/JieMeiDev/clash-dashboard?style=flat-square" alt="Version">
     </a>
     <a href="https://github.com/JieMeiDev/clash-dashboard/blob/master/CHANGELOG.md">
-        <img src="https://img.shields.io/badge/version-0.1.2-blue?style=flat-square" alt="Version">
+        <img src="https://img.shields.io/badge/changelog-0.1.15-blue?style=flat-square" alt="Changelog">
     </a>
 </p>
 
 ## 声明
 
-本仓库由 **[JieMeiDev](https://github.com/JieMeiDev)** 维护，用于 Clash External Controller 的 Web 管理。
+本仓库由 **[JieMeiDev](https://github.com/JieMeiDev)** 维护，用于 Clash External Controller 的 Web 管理界面。
 
-- 基于官方 Clash Dashboard 最后公开版本（0.1.0）二次开发，当前 **v0.1.1**
+- 基于官方 Clash Dashboard 最后公开版本（0.1.0）二次开发，当前 **v0.1.15**
 - 与 Dreamacro 及原官方项目无隶属关系
-- 变更记录见 [CHANGELOG.md](./CHANGELOG.md)
+- 完整变更见 [CHANGELOG.md](./CHANGELOG.md)
 
-## 定制说明（v0.1.2）
+## 主要定制（v0.1.15）
 
-- **Overview 总览**：实时上下行、总量、活跃连接数、流量曲线（类似 yacd）
-- 移除 Connections 页 **Process** 列（透明代理无法获取进程信息）
-- 支持 **macOS 暗黑模式**（跟随系统 `prefers-color-scheme`）
+- **Overview 总览**：实时上下行、总量、活跃连接、流量曲线
+- **Connections**：透明代理优化列顺序；移动端 Conns 入口与详情抽屉
+- **Apple 风格主题**：深色纯黑背景 + 分组卡片；浅色 iOS 风格
+- **主题切换**（YACD 风格）：侧边栏 Auto / Dark / Light，偏好本地保存
+- 移除 Process 列及不适用的 Settings 开关（透明代理 / 路由器场景）
+- About 页：Clash 源码指向 [JieMeiDev/clash](https://github.com/JieMeiDev/clash)
 
-## Features
-
-  - All ClashX configurations
-  - Manage Proxies
-  - Manage Proxy Groups
-  - Realtime Log
-
-### Start develop with ClashX(Dev Mode)
-
-You can setup your local development environment with [the contribution guide](CONTRIBUTION.md).
+## 开发
 
 ```bash
-# Enable ClashX with Dev Mode
-defaults write com.west2online.ClashX kEnableDashboard -bool YES
-
-# Set dashboard entry
-defaults write com.west2online.ClashX webviewUrl "http://localhost:8080/"
-
-# Reset dashboard entry
-defaults delete com.west2online.ClashX webviewUrl
+pnpm install   # 或 npm install
+pnpm start     # http://localhost:3000/
+pnpm build
 ```
 
-### Development Env
+## 部署到本地静态目录
 
-This command will start Clash Dashboard at `http://localhost:3000/`
+仓库上级目录 `clashdb/` 为路由器部署用的静态产物目录：
 
 ```bash
-$ pnpm start
+./scripts/deploy-local.sh
 ```
 
-### Build for production
+## 部署到路由器
 
 ```bash
-$ pnpm build
+scp -O -r ../clashdb/* root@192.168.1.1:/root/.config/clash/ui/db3/
 ```
 
-## Contributors
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore -->
-| [<img src="https://avatars2.githubusercontent.com/u/3380894?v=4" width="100px;"/><br /><sub><b>Jason Chen</b></sub>](https://ijason.cc)<br />[🎨](#design-jas0ncn "Design") [💻](https://github.com/Dreamacro/clash-dashboard/commits?author=jas0ncn "Code") [🐛](https://github.com/Dreamacro/clash-dashboard/issues?q=author%3Ajas0ncn "Bug reports") [🤔](#ideas-jas0ncn "Ideas, Planning, & Feedback") [👀](#review-jas0ncn "Reviewed Pull Requests") [🌍](#translation-jas0ncn "Translation") | [<img src="https://avatars1.githubusercontent.com/u/8615343?v=4" width="100px;"/><br /><sub><b>Dreamacro</b></sub>](https://github.com/Dreamacro)<br />[💻](https://github.com/Dreamacro/clash-dashboard/commits?author=Dreamacro "Code") [🐛](https://github.com/Dreamacro/clash-dashboard/issues?q=author%3ADreamacro "Bug reports") [🤔](#ideas-Dreamacro "Ideas, Planning, & Feedback") [👀](#review-Dreamacro "Reviewed Pull Requests") [🌍](#translation-Dreamacro "Translation") [📦](#platform-Dreamacro "Packaging/porting to new platform") | [<img src="https://avatars1.githubusercontent.com/u/12679581?v=4" width="100px;"/><br /><sub><b>chs97</b></sub>](http://www.hs97.cn)<br />[💻](https://github.com/Dreamacro/clash-dashboard/commits?author=chs97 "Code") [🐛](https://github.com/Dreamacro/clash-dashboard/issues?q=author%3Achs97 "Bug reports") [👀](#review-chs97 "Reviewed Pull Requests") | [<img src="https://avatars3.githubusercontent.com/u/11733500?v=4" width="100px;"/><br /><sub><b>Yicheng</b></sub>](https://github.com/yichengchen)<br />[🤔](#ideas-yichengchen "Ideas, Planning, & Feedback") [📦](#platform-yichengchen "Packaging/porting to new platform") |
-| :---: | :---: | :---: | :---: |
-<!-- ALL-CONTRIBUTORS-LIST:END -->
+部署后若样式未更新，硬刷新或清除 Service Worker 缓存。
 
 ## LICENSE
 
