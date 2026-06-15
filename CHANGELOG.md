@@ -2,6 +2,17 @@
 
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+**Versioning:** bump `package.json` and add a changelog entry for every user-facing change before release.
+
+---
+
+## [0.1.5] - 2026-06-15
+
+### Added
+
+- **Redir port** and **TProxy port** fields on the Settings page (between HTTP and Mixed ports)
+- Read/write via Clash API `redir-port` and `tproxy-port`
+
 ---
 
 ## [0.1.4] - 2026-06-15

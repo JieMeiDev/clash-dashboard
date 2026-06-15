@@ -4,6 +4,7 @@ export interface Config {
     port: number
     'socks-port': number
     'redir-port': number
+    'tproxy-port': number
     'mixed-port': number
     'allow-lan': boolean
     mode: string

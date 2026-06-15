@@ -86,6 +86,11 @@ export interface Data {
         redirPort?: number
 
         /**
+         * tproxy port
+         */
+        tproxyPort?: number
+
+        /**
          * proxy is allow lan
          */
         allowLan: boolean

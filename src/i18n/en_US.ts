@@ -34,6 +34,8 @@ const EN = {
             proxyMode: 'Mode',
             socks5ProxyPort: 'Socks5 proxy port',
             httpProxyPort: 'HTTP proxy port',
+            redirPort: 'Redir port',
+            tproxyPort: 'TProxy port',
             mixedProxyPort: 'Mixed proxy port',
             externalController: 'External controller',
             edit: 'Edit',

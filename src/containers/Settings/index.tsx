@@ -22,12 +22,16 @@ export default function Settings () {
     const [info, set] = useObject({
         socks5ProxyPort: 7891,
         httpProxyPort: 7890,
+        redirPort: 0,
+        tproxyPort: 0,
         mixedProxyPort: 0,
     })
 
     useEffect(() => {
         set('socks5ProxyPort', general?.socksPort ?? 0)
         set('httpProxyPort', general?.port ?? 0)
+        set('redirPort', general?.redirPort ?? 0)
+        set('tproxyPort', general?.tproxyPort ?? 0)
         set('mixedProxyPort', general?.mixedPort ?? 0)
     }, [general, set])
 
@@ -48,6 +52,16 @@ export default function Settings () {
 
     async function handleHttpPortSave () {
         await client.updateConfig({ port: info.httpProxyPort })
+        await fetchGeneral()
+    }
+
+    async function handleRedirPortSave () {
+        await client.updateConfig({ 'redir-port': info.redirPort })
+        await fetchGeneral()
+    }
+
+    async function handleTproxyPortSave () {
+        await client.updateConfig({ 'tproxy-port': info.tproxyPort })
         await fetchGeneral()
     }
 
@@ -165,6 +179,28 @@ export default function Settings () {
                             value={info.httpProxyPort}
                             onChange={httpProxyPort => set('httpProxyPort', +httpProxyPort)}
                             onBlur={handleHttpPortSave}
+                        />
+                    </div>
+                    <div className="w-full flex items-center justify-between px-8 py-3 md:w-1/2">
+                        <span className="label font-bold">{t('labels.redirPort')}</span>
+                        <Input
+                            className="w-28"
+                            disabled={isClashX}
+                            value={info.redirPort}
+                            onChange={redirPort => set('redirPort', +redirPort)}
+                            onBlur={handleRedirPortSave}
+                        />
+                    </div>
+                </div>
+                <div className="flex flex-wrap">
+                    <div className="w-full flex items-center justify-between px-8 py-3 md:w-1/2">
+                        <span className="label font-bold">{t('labels.tproxyPort')}</span>
+                        <Input
+                            className="w-28"
+                            disabled={isClashX}
+                            value={info.tproxyPort}
+                            onChange={tproxyPort => set('tproxyPort', +tproxyPort)}
+                            onBlur={handleTproxyPortSave}
                         />
                     </div>
                     <div className="w-full flex items-center justify-between px-8 py-3 md:w-1/2">
