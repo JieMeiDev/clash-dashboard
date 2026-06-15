@@ -4,6 +4,19 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.3] - 2026-06-15
+
+### Removed
+
+- **Chinese (zh_CN) locale** — UI is English-only
+- Language selector on the Settings page
+
+### Fixed
+
+- External controller edit button no longer hardcoded as「编辑」
+
+---
+
 ## [0.1.2] - 2026-06-15
 
 ### Added

@@ -1,6 +1,6 @@
 {
     "name": "clash-dashboard",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "Web dashboard for Clash via the External Controller REST API.",
     "keywords": [
         "clash",

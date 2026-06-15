@@ -7,6 +7,13 @@ const EN = {
         Settings: 'Setting',
         Connections: 'Connections',
         Version: 'Version',
+        About: 'About',
+    },
+    About: {
+        title: 'About',
+        version: 'Version',
+        source: 'Source',
+        dashboard: 'Clash Dashboard',
     },
     Overview: {
         title: 'Overview',
@@ -22,7 +29,6 @@ const EN = {
         title: 'Settings',
         labels: {
             startAtLogin: 'Start at login',
-            language: 'language',
             setAsSystemProxy: 'Set as system proxy',
             allowConnectFromLan: 'Allow connect from Lan',
             proxyMode: 'Mode',
@@ -30,10 +36,9 @@ const EN = {
             httpProxyPort: 'HTTP proxy port',
             mixedProxyPort: 'Mixed proxy port',
             externalController: 'External controller',
+            edit: 'Edit',
         },
         values: {
-            cn: '中文',
-            en: 'English',
             global: 'Global',
             rules: 'Rules',
             direct: 'Direct',

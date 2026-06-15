@@ -10,7 +10,7 @@ import * as R from 'remeda'
 import useSWR from 'swr'
 import { type Get } from 'type-fest'
 
-import { Language, locales, type Lang, getDefaultLanguage, type LocalizedType } from '@i18n'
+import { Language, type LocalizedType } from '@i18n'
 import { partition } from '@lib/helper'
 import { useWarpImmerSetter, type WritableDraft } from '@lib/jotai'
 import { isClashX, jsBridge } from '@lib/jsBridge'
@@ -24,11 +24,8 @@ import { useAPIInfo, useClient } from './request'
 
 export const identityAtom = atom(true)
 
-export const languageAtom = atomWithStorage<Lang | undefined>('language', undefined)
-
 export function useI18n () {
-    const [defaultLang, setLang] = useAtom(languageAtom)
-    const lang = useMemo(() => defaultLang ?? getDefaultLanguage(), [defaultLang])
+    const lang = 'en_US' as const
 
     const translation = useCallback(
         function <Namespace extends keyof LocalizedType>(namespace: Namespace) {
@@ -44,7 +41,7 @@ export function useI18n () {
         [lang],
     )
 
-    return { lang, locales, setLang, translation }
+    return { lang, translation }
 }
 
 export const version = atom({

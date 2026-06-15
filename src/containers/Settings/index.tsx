@@ -2,14 +2,11 @@ import classnames from 'classnames'
 import { useAtom, useAtomValue, useSetAtom } from 'jotai'
 import { useEffect, useMemo } from 'react'
 
-import { Header, Card, Switch, ButtonSelect, type ButtonSelectOptions, Input, Select } from '@components'
-import { type Lang } from '@i18n'
+import { Header, Card, Switch, ButtonSelect, Input, Select } from '@components'
 import { useObject } from '@lib/hook'
 import { jsBridge } from '@lib/jsBridge'
 import { useI18n, useClashXData, useGeneral, useVersion, useClient, identityAtom, hostSelectIdxStorageAtom, hostsStorageAtom, useAPIInfo } from '@stores'
 import './style.scss'
-
-const languageOptions: ButtonSelectOptions[] = [{ label: '中文', value: 'zh_CN' }, { label: 'English', value: 'en_US' }]
 
 export default function Settings () {
     const { premium } = useVersion()
@@ -19,7 +16,7 @@ export default function Settings () {
     const [hostSelectIdx, setHostSelectIdx] = useAtom(hostSelectIdxStorageAtom)
     const hostsStorage = useAtomValue(hostsStorageAtom)
     const apiInfo = useAPIInfo()
-    const { translation, setLang, lang } = useI18n()
+    const { translation } = useI18n()
     const { t } = translation('Settings')
     const client = useClient()
     const [info, set] = useObject({
@@ -47,10 +44,6 @@ export default function Settings () {
     async function handleSetSystemProxy (state: boolean) {
         await jsBridge?.setSystemProxy(state)
         await fetchClashXData()
-    }
-
-    function changeLanguage (language: Lang) {
-        setLang(language)
     }
 
     async function handleHttpPortSave () {
@@ -113,7 +106,7 @@ export default function Settings () {
                 <span
                     className={classnames({ 'modify-btn': !isClashX }, 'external-controller')}
                     onClick={() => !isClashX && setIdentity(false)}>
-                    编辑
+                    {t('labels.edit')}
                 </span>
             </>
         )
@@ -127,12 +120,6 @@ export default function Settings () {
                         <span className="label font-bold">{t('labels.startAtLogin')}</span>
                         <Switch disabled={!clashXData?.isClashX} checked={startAtLogin} onChange={handleStartAtLoginChange} />
                     </div>
-                    <div className="w-full flex items-center justify-between px-8 py-3 md:w-1/2">
-                        <span className="label font-bold">{t('labels.language')}</span>
-                        <ButtonSelect options={languageOptions} value={lang} onSelect={(lang) => changeLanguage(lang as Lang)} />
-                    </div>
-                </div>
-                <div className="flex flex-wrap">
                     <div className="w-full flex items-center justify-between px-8 py-3 md:w-1/2">
                         <span className="label font-bold">{t('labels.setAsSystemProxy')}</span>
                         <Switch
