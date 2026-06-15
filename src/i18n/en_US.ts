@@ -82,7 +82,7 @@ const EN = {
             all: 'All',
         },
         columns: {
-            host: 'Host',
+            destinationIP: 'Destination IP',
             network: 'Network',
             type: 'Type',
             chains: 'Chains',

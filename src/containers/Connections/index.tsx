@@ -17,7 +17,7 @@ import { type Connection, type FormatConnection, useConnections } from './store'
 import './style.scss'
 
 const Columns = {
-    Host: 'host',
+    DestinationIP: 'destinationIP',
     Network: 'network',
     Type: 'type',
     Chains: 'chains',
@@ -71,7 +71,9 @@ export default function Connections () {
     const data: FormatConnection[] = useMemo(() => connections.map(
         c => ({
             id: c.id,
-            host: `${c.metadata.host || c.metadata.destinationIP}:${c.metadata.destinationPort}`,
+            destinationIP: c.metadata.destinationIP
+                ? `${c.metadata.destinationIP}:${c.metadata.destinationPort}`
+                : '-',
             chains: c.chains.slice().reverse().join(' / '),
             rule: c.rulePayload ? `${c.rule} :: ${c.rulePayload}` : c.rule,
             time: new Date(c.start).getTime(),
@@ -97,7 +99,7 @@ export default function Connections () {
     const intersection = useIntersectionObserver(pinRef, { threshold: [1] })
     const columns = useMemo(
         () => [
-            columnHelper.accessor(Columns.Host, { minSize: 260, size: 260, header: t(`columns.${Columns.Host}`) }),
+            columnHelper.accessor(Columns.DestinationIP, { minSize: 260, size: 260, header: t(`columns.${Columns.DestinationIP}`) }),
             columnHelper.accessor(Columns.Network, { minSize: 80, size: 80, header: t(`columns.${Columns.Network}`) }),
             columnHelper.accessor(Columns.Type, { minSize: 100, size: 100, header: t(`columns.${Columns.Type}`) }),
             columnHelper.accessor(Columns.Chains, { minSize: 200, size: 200, header: t(`columns.${Columns.Chains}`) }),
@@ -213,11 +215,11 @@ export default function Connections () {
             <th
                 className={classnames('connections-th', {
                     resizing: column.getIsResizing(),
-                    fixed: column.id === Columns.Host,
-                    shadow: scrolled && column.id === Columns.Host,
+                    fixed: column.id === Columns.DestinationIP,
+                    shadow: scrolled && column.id === Columns.DestinationIP,
                 })}
                 style={{ width: header.getSize() }}
-                ref={column.id === Columns.Host ? pinRef : undefined}
+                ref={column.id === Columns.DestinationIP ? pinRef : undefined}
                 key={id}>
                 <div onClick={column.getToggleSortingHandler()}>
                     { flexRender(header.column.columnDef.header, header.getContext()) }
@@ -249,8 +251,8 @@ export default function Connections () {
                             'connections-block',
                             { 'text-center': shouldCenter.has(cell.column.id), completed: row.original?.completed },
                             {
-                                fixed: cell.column.id === Columns.Host,
-                                shadow: scrolled && cell.column.id === Columns.Host,
+                                fixed: cell.column.id === Columns.DestinationIP,
+                                shadow: scrolled && cell.column.id === Columns.DestinationIP,
                             },
                         )
                         return (

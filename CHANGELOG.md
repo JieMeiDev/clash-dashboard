@@ -6,6 +6,14 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.7] - 2026-06-15
+
+### Changed
+
+- Connections table first column renamed from **Host** to **Destination IP**, showing `destinationIP:port` instead of domain host
+
+---
+
 ## [0.1.6] - 2026-06-15
 
 ### Removed
