@@ -15,6 +15,7 @@ import { useLogsStreamReader } from '@stores'
 
 import '../styles/common.scss'
 import '../styles/dark-mode.scss'
+import '../styles/apple-theme.scss'
 import '../styles/iconfont.scss'
 
 export default function App () {

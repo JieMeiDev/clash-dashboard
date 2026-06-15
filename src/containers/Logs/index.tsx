@@ -69,7 +69,7 @@ export default function Logs () {
                 />
             </Header>
 
-            <Card className="mt-2.5 flex flex-1 flex-col md:mt-4">
+            <Card className="logs-card mt-2.5 flex flex-1 flex-col md:mt-4">
                 <ul className="logs-panel" ref={listRef}>
                     {
                         logs.map(
