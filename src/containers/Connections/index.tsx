@@ -30,6 +30,11 @@ const Columns = {
 } as const
 
 const PINNED_COLUMN = Columns.SourceIP
+const FIXED_WIDTH_COLUMNS = new Set<string>([
+    PINNED_COLUMN,
+    Columns.DestinationIP,
+    Columns.Chains,
+])
 
 const shouldCenter = new Set<string>([Columns.Network, Columns.Type, Columns.Speed, Columns.Upload, Columns.Download, Columns.SourceIP, Columns.Time])
 
@@ -102,7 +107,7 @@ export default function Connections () {
     const columns = useMemo(
         () => [
             columnHelper.accessor(Columns.SourceIP, { minSize: 140, size: 140, header: t(`columns.${Columns.SourceIP}`), filterFn: 'equals' }),
-            columnHelper.accessor(Columns.DestinationIP, { minSize: 260, size: 260, header: t(`columns.${Columns.DestinationIP}`) }),
+            columnHelper.accessor(Columns.DestinationIP, { minSize: 180, size: 180, header: t(`columns.${Columns.DestinationIP}`) }),
             columnHelper.accessor(
                 row => [row.speed.upload, row.speed.download],
                 {
@@ -134,7 +139,7 @@ export default function Connections () {
                 },
             ),
             columnHelper.accessor(Columns.Network, { minSize: 80, size: 80, header: t(`columns.${Columns.Network}`) }),
-            columnHelper.accessor(Columns.Chains, { minSize: 200, size: 200, header: t(`columns.${Columns.Chains}`) }),
+            columnHelper.accessor(Columns.Chains, { minSize: 320, size: 320, header: t(`columns.${Columns.Chains}`) }),
             columnHelper.accessor(Columns.Rule, { minSize: 140, size: 140, header: t(`columns.${Columns.Rule}`) }),
             columnHelper.accessor(Columns.Type, { minSize: 100, size: 100, header: t(`columns.${Columns.Type}`) }),
         ],
@@ -210,17 +215,23 @@ export default function Connections () {
     }, [data, drawerState.selectedID, latestConntion, setDrawerState])
 
     const scrolled = useMemo(() => (intersection?.intersectionRatio ?? 0) < 1, [intersection])
+    function columnStyle (columnId: string, size: number, minSize?: number) {
+        if (FIXED_WIDTH_COLUMNS.has(columnId)) {
+            return { width: size, minWidth: size, maxWidth: size }
+        }
+        return { width: size, minWidth: minSize ?? size }
+    }
     const headers = headerGroup.headers.map((header, idx) => {
         const column = header.column
         const id = column.id
         return (
             <th
-                className={classnames('connections-th', {
+                className={classnames('connections-th', `col-${id}`, {
                     resizing: column.getIsResizing(),
                     fixed: column.id === PINNED_COLUMN,
                     shadow: scrolled && column.id === PINNED_COLUMN,
                 })}
-                style={{ width: header.getSize() }}
+                style={columnStyle(id, header.getSize(), column.columnDef.minSize)}
                 ref={column.id === PINNED_COLUMN ? pinRef : undefined}
                 key={id}>
                 <div onClick={column.getToggleSortingHandler()}>
@@ -251,6 +262,7 @@ export default function Connections () {
                     row.getAllCells().map(cell => {
                         const classname = classnames(
                             'connections-block',
+                            `col-${cell.column.id}`,
                             { 'text-center': shouldCenter.has(cell.column.id), completed: row.original?.completed },
                             {
                                 fixed: cell.column.id === PINNED_COLUMN,
@@ -260,7 +272,7 @@ export default function Connections () {
                         return (
                             <td
                                 className={classname}
-                                style={{ width: cell.column.getSize() }}
+                                style={columnStyle(cell.column.id, cell.column.getSize(), cell.column.columnDef.minSize)}
                                 key={cell.column.id}>
                                 { flexRender(cell.column.columnDef.cell, cell.getContext()) }
                             </td>

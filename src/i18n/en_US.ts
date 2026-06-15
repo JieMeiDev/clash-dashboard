@@ -6,6 +6,7 @@ const EN = {
         Rules: 'Rules',
         Settings: 'Setting',
         Connections: 'Conns',
+        Statistics: 'Stats',
         Version: 'Version',
         About: 'About',
         switchTheme: 'Switch theme',
@@ -28,6 +29,17 @@ const EN = {
         activeConnections: 'Active Connections',
         chartUp: 'Up',
         chartDown: 'Down',
+    },
+    Statistics: {
+        title: 'Statistics',
+        topSourceIP: 'Top 10 LAN IPs (Download)',
+        topDestinationIP: 'Top 10 Destination IPs (Download)',
+        empty: 'No data yet this month',
+        clear: 'Clear',
+        clearConfirm: {
+            title: 'Clear Statistics',
+            content: 'Clear all statistics for the current month? This cannot be undone.',
+        },
     },
     Settings: {
         title: 'Settings',

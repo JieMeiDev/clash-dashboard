@@ -72,6 +72,19 @@ body {
     color: #8e8e93;
   }
 
+  .statistics-page .statistics-month,
+  .statistics-page .statistics-panel-title {
+    color: #8e8e93;
+  }
+
+  .statistics-page .statistics-row {
+    border-bottom-color: rgba(60, 60, 67, 0.12);
+  }
+
+  .statistics-page .statistics-rank {
+    color: #007aff;
+  }
+
   .proxy-item {
     background: #fff;
     border: 0.5px solid rgba(60, 60, 67, 0.12);
@@ -179,6 +192,23 @@ html[data-theme="auto"] {
     color: #fff;
     font-weight: 600;
     font-size: 22px;
+  }
+
+  .statistics-page .statistics-month,
+  .statistics-page .statistics-panel-title {
+    color: #8e8e93;
+  }
+
+  .statistics-page .statistics-row {
+    border-bottom-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .statistics-page .statistics-rank {
+    color: #0a84ff;
+  }
+
+  .statistics-page .statistics-empty {
+    color: #636366;
   }
 
   .overview-chart-legend {

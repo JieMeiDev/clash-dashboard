@@ -6,6 +6,21 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.16] - 2026-06-16
+
+### Added
+
+- **Statistics** page (`/statistics`, sidebar **Stats**): top 10 LAN IPs and top 10 destination IPs by download for the current calendar month
+- Monthly stats persisted in `localStorage` (per external controller); survives Clash and router restarts when using the same browser
+- One-click **Clear** button to reset current month statistics
+
+### Changed
+
+- Connections table: fixed **Destination IP** (180px) and **Chains** (320px) column widths
+- Connections table layout: `table-layout: fixed` and standard table cells (fixes Type/TProxy wrapping into the first column)
+
+---
+
 ## [0.1.15] - 2026-06-16
 
 ### Added
