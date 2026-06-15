@@ -4,7 +4,7 @@ import { useI18n, useClashXData, useVersion } from '@stores'
 import { GitHubIcon } from './GitHubIcon'
 import './style.scss'
 
-const CLASH_SOURCE = 'https://github.com/MetaCubeX/mihomo'
+const CLASH_SOURCE = 'https://github.com/JieMeiDev/clash'
 const DASHBOARD_SOURCE = 'https://github.com/JieMeiDev/clash-dashboard'
 
 interface VersionBlockProps {

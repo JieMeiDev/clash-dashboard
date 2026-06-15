@@ -6,6 +6,14 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.11] - 2026-06-15
+
+### Changed
+
+- **About** page: Clash core Source link now points to [JieMeiDev/clash](https://github.com/JieMeiDev/clash) archive mirror
+
+---
+
 ## [0.1.10] - 2026-06-15
 
 ### Fixed
