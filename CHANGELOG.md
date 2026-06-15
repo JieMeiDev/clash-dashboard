@@ -6,6 +6,14 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.10] - 2026-06-15
+
+### Fixed
+
+- **Mobile dark mode:** pinned Source IP column background now matches other columns (was `#1c1c1e` vs card `#2c2c2e`)
+
+---
+
 ## [0.1.9] - 2026-06-15
 
 ### Added
