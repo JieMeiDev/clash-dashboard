@@ -6,6 +6,15 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.13] - 2026-06-15
+
+### Fixed
+
+- **Mobile Proxies scroll (complete fix):** mobile `.page` uses `height: auto` so content can grow; Logs keeps internal scroll via `logs-page`
+- **Policy group tags on mobile:** always expanded (no Expand/Collapse); removes iOS `overflow-y-hidden` swipe trap
+
+---
+
 ## [0.1.12] - 2026-06-15
 
 ### Fixed

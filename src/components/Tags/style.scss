@@ -43,6 +43,8 @@ $height: 22px;
 
 @media (max-width: 768px) {
     .tags-scroll {
+        height: auto !important;
+        overflow: visible;
         touch-action: pan-y;
     }
 }

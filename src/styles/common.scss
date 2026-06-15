@@ -90,7 +90,12 @@ input {
 
     .page {
         padding: 0 0 20px;
-        height: 100%;
+        height: auto;
         min-height: unset;
+    }
+
+    // Logs keeps an internal scroll panel; Connections uses !h-100vh
+    .page.logs-page {
+        height: 100%;
     }
 }

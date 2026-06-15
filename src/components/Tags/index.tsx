@@ -2,6 +2,7 @@ import classnames from 'classnames'
 import { useState, useRef, useLayoutEffect } from 'react'
 
 import { noop } from '@lib/helper'
+import { useMediaQuery } from '@lib/hook'
 import { type BaseComponentProps } from '@models'
 import { useI18n } from '@stores'
 import './style.scss'
@@ -20,15 +21,17 @@ export function Tags (props: TagsProps) {
 
     const { translation } = useI18n()
     const { t } = translation('Proxies')
+    const isMobile = useMediaQuery('(max-width: 768px)')
     const [expand, setExpand] = useState(false)
     const [showExtend, setShowExtend] = useState(false)
 
     const ulRef = useRef<HTMLUListElement>(null)
     useLayoutEffect(() => {
-        setShowExtend((ulRef?.current?.offsetHeight ?? 0) > 30)
-    }, [])
+        setShowExtend((ulRef?.current?.offsetHeight ?? 0) > rawHeight)
+    }, [data, rawHeight])
 
-    const rowHeight = expand ? 'auto' : rawHeight
+    const expanded = expand || isMobile
+    const rowHeight = expanded ? 'auto' : rawHeight
     const handleClick = canClick ? onClick : noop
 
     function toggleExtend () {
@@ -46,13 +49,22 @@ export function Tags (props: TagsProps) {
         })
 
     return (
-        <div className={classnames('tags-scroll', 'flex items-start overflow-y-hidden', className)} style={{ height: rowHeight }}>
-            <ul ref={ulRef} className={classnames('tags', { expand })}>
+        <div
+            className={classnames(
+                'tags-scroll',
+                'flex items-start',
+                { 'overflow-y-hidden': !expanded },
+                className,
+            )}
+            style={{ height: rowHeight }}>
+            <ul ref={ulRef} className={classnames('tags', { expand: expanded })}>
                 { tags }
             </ul>
             {
-                showExtend &&
-                <span className="h-7 cursor-pointer select-none px-5 leading-7" onClick={toggleExtend}>{ expand ? t('collapseText') : t('expandText') }</span>
+                showExtend && !isMobile &&
+                <span className="tags-toggle h-7 cursor-pointer select-none px-5 leading-7" onClick={toggleExtend}>
+                    { expand ? t('collapseText') : t('expandText') }
+                </span>
             }
         </div>
     )

@@ -58,7 +58,7 @@ export default function Logs () {
     }, [logsStreamReader])
 
     return (
-        <div className="page">
+        <div className="page logs-page">
             <Header title={ t('title') } >
                 <span className="mr-2 text-sm text-primary-darken">{t('levelLabel')}:</span>
                 <Select
