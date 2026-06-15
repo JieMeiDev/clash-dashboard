@@ -15,7 +15,6 @@ export interface FormatConnection {
     download: number
     type: string
     network: string
-    process?: string
     sourceIP: string
     speed: {
         upload: number

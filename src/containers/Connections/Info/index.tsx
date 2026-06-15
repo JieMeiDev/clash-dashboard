@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import { useMemo } from 'react'
 
-import { basePath, formatTraffic } from '@lib/helper'
+import { formatTraffic } from '@lib/helper'
 import { type BaseComponentProps } from '@models'
 import { useI18n } from '@stores'
 
@@ -51,22 +51,6 @@ export function ConnectionInfo (props: ConnectionsInfoProps) {
                 <span className="w-20 font-bold">{t('info.srcIP')}</span>
                 <span className="font-mono">{
                     `${props.connection.metadata?.sourceIP}:${props.connection.metadata?.sourcePort}`
-                }</span>
-            </div>
-            <div className="my-3 flex">
-                <span className="w-20 font-bold">{t('info.process')}</span>
-                <span className="flex-1 break-all font-mono">{
-                    props.connection.metadata?.processPath
-                        ? `${basePath(props.connection.metadata.processPath)}`
-                        : t('info.hostEmpty')
-                }</span>
-            </div>
-            <div className="my-3 flex">
-                <span className="w-20 font-bold">{t('info.processPath')}</span>
-                <span className="flex-1 break-all font-mono">{
-                    props.connection.metadata?.processPath
-                        ? `${props.connection.metadata.processPath}`
-                        : t('info.hostEmpty')
                 }</span>
             </div>
             <div className="my-3 flex">

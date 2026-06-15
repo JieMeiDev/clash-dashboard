@@ -6,7 +6,7 @@ import { groupBy } from 'remeda'
 
 import { Header, Checkbox, Modal, Icon, Drawer, Card, Button } from '@components'
 import { fromNow } from '@lib/date'
-import { basePath, formatTraffic } from '@lib/helper'
+import { formatTraffic } from '@lib/helper'
 import { useObject, useVisible } from '@lib/hook'
 import type * as API from '@lib/request'
 import { useClient, useConnectionStreamReader, useI18n } from '@stores'
@@ -19,7 +19,6 @@ import './style.scss'
 const Columns = {
     Host: 'host',
     Network: 'network',
-    Process: 'process',
     Type: 'type',
     Chains: 'chains',
     Rule: 'rule',
@@ -30,7 +29,7 @@ const Columns = {
     Time: 'time',
 } as const
 
-const shouldCenter = new Set<string>([Columns.Network, Columns.Type, Columns.Speed, Columns.Upload, Columns.Download, Columns.SourceIP, Columns.Time, Columns.Process])
+const shouldCenter = new Set<string>([Columns.Network, Columns.Type, Columns.Speed, Columns.Upload, Columns.Download, Columns.SourceIP, Columns.Time])
 
 function formatSpeed (upload: number, download: number) {
     switch (true) {
@@ -81,7 +80,6 @@ export default function Connections () {
             sourceIP: c.metadata.sourceIP,
             type: c.metadata.type,
             network: c.metadata.network.toUpperCase(),
-            process: c.metadata.processPath,
             speed: { upload: c.uploadSpeed, download: c.downloadSpeed },
             completed: !!c.completed,
             original: c,
@@ -104,7 +102,6 @@ export default function Connections () {
             columnHelper.accessor(Columns.Type, { minSize: 100, size: 100, header: t(`columns.${Columns.Type}`) }),
             columnHelper.accessor(Columns.Chains, { minSize: 200, size: 200, header: t(`columns.${Columns.Chains}`) }),
             columnHelper.accessor(Columns.Rule, { minSize: 140, size: 140, header: t(`columns.${Columns.Rule}`) }),
-            columnHelper.accessor(Columns.Process, { minSize: 100, size: 100, header: t(`columns.${Columns.Process}`), cell: cell => cell.getValue() ? basePath(cell.getValue()!) : '-' }),
             columnHelper.accessor(
                 row => [row.speed.upload, row.speed.download],
                 {
