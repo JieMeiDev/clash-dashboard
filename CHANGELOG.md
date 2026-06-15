@@ -6,6 +6,18 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.1.17] - 2026-06-16
+
+### Changed
+
+- Typography: unified font weights to 400 (body/titles) and 500 (labels, table headers, modal titles)
+- Page titles (`h1`): weight 400, Apple theme colors `#000` / `#fff`; removed conflicting `md:text-xl` utility
+- Overview stat cards: labels and values share weight 400; hierarchy via size and color
+- Settings, Connections drawer, and modal labels: `font-bold` (700) → medium (500)
+- Statistics rank weight 500; proxy node names 12px for readability
+
+---
+
 ## [0.1.16] - 2026-06-16
 
 ### Added

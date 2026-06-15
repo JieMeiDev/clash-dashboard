@@ -13,6 +13,12 @@
   justify-content: space-between;
 }
 
+.overview-stat-label,
+.overview-stat-value {
+  font-family: inherit;
+  font-weight: 400;
+}
+
 .overview-stat-label {
   font-size: 13px;
   color: #54759a;
@@ -21,7 +27,6 @@
 .overview-stat-value {
   margin-top: 10px;
   font-size: 22px;
-  font-weight: 500;
   color: #2c8af8;
   line-height: 1.2;
   word-break: break-word;

@@ -112,7 +112,7 @@ export default function Settings () {
             <Card className="settings-card">
                 <div className="flex flex-wrap">
                     <div className="w-full flex items-center justify-between px-8 py-3 md:w-1/2">
-                        <span className="label font-bold">{t('labels.proxyMode')}</span>
+                        <span className="label font-medium">{t('labels.proxyMode')}</span>
                         <ButtonSelect
                             options={proxyModeOptions}
                             value={mode}
@@ -120,7 +120,7 @@ export default function Settings () {
                         />
                     </div>
                     <div className="w-full flex items-center justify-between px-8 py-3 md:w-1/2">
-                        <span className="label font-bold">{t('labels.socks5ProxyPort')}</span>
+                        <span className="label font-medium">{t('labels.socks5ProxyPort')}</span>
                         <Input
                             className="w-28"
                             disabled={isClashX}
@@ -132,7 +132,7 @@ export default function Settings () {
                 </div>
                 <div className="flex flex-wrap">
                     <div className="w-full flex items-center justify-between px-8 py-3 md:w-1/2">
-                        <span className="label font-bold">{t('labels.httpProxyPort')}</span>
+                        <span className="label font-medium">{t('labels.httpProxyPort')}</span>
                         <Input
                             className="w-28"
                             disabled={isClashX}
@@ -142,7 +142,7 @@ export default function Settings () {
                         />
                     </div>
                     <div className="w-full flex items-center justify-between px-8 py-3 md:w-1/2">
-                        <span className="label font-bold">{t('labels.redirPort')}</span>
+                        <span className="label font-medium">{t('labels.redirPort')}</span>
                         <Input
                             className="w-28"
                             disabled={isClashX}
@@ -154,7 +154,7 @@ export default function Settings () {
                 </div>
                 <div className="flex flex-wrap">
                     <div className="w-full flex items-center justify-between px-8 py-3 md:w-1/2">
-                        <span className="label font-bold">{t('labels.tproxyPort')}</span>
+                        <span className="label font-medium">{t('labels.tproxyPort')}</span>
                         <Input
                             className="w-28"
                             disabled={isClashX}
@@ -164,7 +164,7 @@ export default function Settings () {
                         />
                     </div>
                     <div className="w-full flex items-center justify-between px-8 py-3 md:w-1/2">
-                        <span className="label font-bold">{t('labels.mixedProxyPort')}</span>
+                        <span className="label font-medium">{t('labels.mixedProxyPort')}</span>
                         <Input
                             className="w-28"
                             disabled={isClashX}
@@ -176,7 +176,7 @@ export default function Settings () {
                 </div>
                 <div className="flex flex-wrap">
                     <div className="w-full flex items-center justify-between px-8 py-3 md:w-1/2">
-                        <span className="label font-bold">{t('labels.externalController')}</span>
+                        <span className="label font-medium">{t('labels.externalController')}</span>
                         <div className="flex items-center space-x-2">
                             { controllers }
                         </div>

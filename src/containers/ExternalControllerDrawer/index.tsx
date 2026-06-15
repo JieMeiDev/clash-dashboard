@@ -73,7 +73,7 @@ export default function ExternalController () {
                 <p>{t('externalControllerSetting.note')}</p>
             </Alert>
             <div className="flex items-center">
-                <span className="my-1 w-14 font-bold md:my-3">{t('externalControllerSetting.host')}</span>
+                <span className="my-1 w-14 font-medium md:my-3">{t('externalControllerSetting.host')}</span>
                 <Input
                     className="my-1 flex-1 md:my-3"
                     align="left"
@@ -84,7 +84,7 @@ export default function ExternalController () {
                 />
             </div>
             <div className="flex items-center">
-                <div className="my-1 w-14 font-bold md:my-3">{t('externalControllerSetting.port')}</div>
+                <div className="my-1 w-14 font-medium md:my-3">{t('externalControllerSetting.port')}</div>
                 <Input
                     className="my-1 w-14 flex-1 md:my-3"
                     align="left"
@@ -95,7 +95,7 @@ export default function ExternalController () {
                 />
             </div>
             <div className="flex items-center">
-                <div className="my-1 w-14 font-bold md:my-3">{t('externalControllerSetting.secret')}</div>
+                <div className="my-1 w-14 font-medium md:my-3">{t('externalControllerSetting.secret')}</div>
                 <Input
                     className="my-1 w-14 flex-1 md:my-3"
                     align="left"

@@ -11,7 +11,7 @@ body {
 }
 
 .header > h1 {
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: -0.02em;
   text-shadow: none;
 }
@@ -61,11 +61,11 @@ body {
 
   .header > h1 {
     color: #000;
+    font-weight: 400;
   }
 
   .overview-stat-value {
     color: #000;
-    font-weight: 600;
   }
 
   .overview-stat-label {
@@ -144,7 +144,7 @@ html[data-theme="auto"] {
     background-color: #1c1c1e;
     border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
     color: #8e8e93;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 12px;
   }
 
@@ -168,6 +168,7 @@ html[data-theme="auto"] {
 
   .header > h1 {
     color: #fff;
+    font-weight: 400;
   }
 
   .connections-filter,
@@ -190,7 +191,6 @@ html[data-theme="auto"] {
 
   .overview-stat-value {
     color: #fff;
-    font-weight: 600;
     font-size: 22px;
   }
 
@@ -229,7 +229,7 @@ html[data-theme="auto"] {
 
     .proxy-name {
       color: #fff;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 500;
     }
 
@@ -334,7 +334,7 @@ html[data-theme="auto"] {
 
     .sidebar-menu .item > a {
       border-radius: 8px;
-      font-weight: 600;
+      font-weight: 500;
       font-size: 11px;
     }
 

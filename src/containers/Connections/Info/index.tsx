@@ -18,21 +18,21 @@ export function ConnectionInfo (props: ConnectionsInfoProps) {
     return (
         <div className={classnames(props.className, 'flex flex-col overflow-y-auto text-sm')}>
             <div className="my-3 flex">
-                <span className="w-20 font-bold">{t('info.id')}</span>
+                <span className="w-20 font-medium">{t('info.id')}</span>
                 <span className="font-mono">{props.connection.id}</span>
             </div>
             <div className="my-3 flex justify-between">
                 <div className="flex flex-1">
-                    <span className="w-20 font-bold">{t('info.network')}</span>
+                    <span className="w-20 font-medium">{t('info.network')}</span>
                     <span className="font-mono">{props.connection.metadata?.network}</span>
                 </div>
                 <div className="flex flex-1">
-                    <span className="w-20 font-bold">{t('info.inbound')}</span>
+                    <span className="w-20 font-medium">{t('info.inbound')}</span>
                     <span className="font-mono">{props.connection.metadata?.type}</span>
                 </div>
             </div>
             <div className="my-3 flex">
-                <span className="w-20 font-bold">{t('info.host')}</span>
+                <span className="w-20 font-medium">{t('info.host')}</span>
                 <span className="flex-1 break-all font-mono">{
                     props.connection.metadata?.host
                         ? `${props.connection.metadata.host}:${props.connection.metadata?.destinationPort}`
@@ -40,7 +40,7 @@ export function ConnectionInfo (props: ConnectionsInfoProps) {
                 }</span>
             </div>
             <div className="my-3 flex">
-                <span className="w-20 font-bold">{t('info.dstIP')}</span>
+                <span className="w-20 font-medium">{t('info.dstIP')}</span>
                 <span className="font-mono">{
                     props.connection.metadata?.destinationIP
                         ? `${props.connection.metadata.destinationIP}:${props.connection.metadata?.destinationPort}`
@@ -48,35 +48,35 @@ export function ConnectionInfo (props: ConnectionsInfoProps) {
                 }</span>
             </div>
             <div className="my-3 flex">
-                <span className="w-20 font-bold">{t('info.srcIP')}</span>
+                <span className="w-20 font-medium">{t('info.srcIP')}</span>
                 <span className="font-mono">{
                     `${props.connection.metadata?.sourceIP}:${props.connection.metadata?.sourcePort}`
                 }</span>
             </div>
             <div className="my-3 flex">
-                <span className="w-20 font-bold">{t('info.rule')}</span>
+                <span className="w-20 font-medium">{t('info.rule')}</span>
                 <span className="font-mono">
                     { props.connection.rule && `${props.connection.rule}${props.connection.rulePayload && ` :: ${props.connection.rulePayload}`}` }
                 </span>
             </div>
             <div className="my-3 flex">
-                <span className="w-20 font-bold">{t('info.chains')}</span>
+                <span className="w-20 font-medium">{t('info.chains')}</span>
                 <span className="flex-1 break-all font-mono">
                     { props.connection.chains?.slice().reverse().join(' / ') }
                 </span>
             </div>
             <div className="my-3 flex justify-between">
                 <div className="flex flex-1">
-                    <span className="w-20 font-bold">{t('info.upload')}</span>
+                    <span className="w-20 font-medium">{t('info.upload')}</span>
                     <span className="font-mono">{formatTraffic(props.connection.upload ?? 0)}</span>
                 </div>
                 <div className="flex flex-1">
-                    <span className="w-20 font-bold">{t('info.download')}</span>
+                    <span className="w-20 font-medium">{t('info.download')}</span>
                     <span className="font-mono">{formatTraffic(props.connection.download ?? 0)}</span>
                 </div>
             </div>
             <div className="my-3 flex">
-                <span className="w-20 font-bold">{t('info.status')}</span>
+                <span className="w-20 font-medium">{t('info.status')}</span>
                 <span className="font-mono">{
                     !props.connection.completed
                         ? <span className="text-green">{t('info.opening')}</span>

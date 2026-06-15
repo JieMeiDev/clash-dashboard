@@ -35,7 +35,7 @@ $padding: 26px;
     line-height: $length;
     transform: translateY(math.div(-$length, 2)) scale(0.6);
     text-shadow: none;
-    font-weight: bold;
+    font-weight: 500;
 
     &.checkbox-icon {
         color: $color-white;

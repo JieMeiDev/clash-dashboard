@@ -310,7 +310,7 @@ export default function Connections () {
             <Modal title={t('closeAll.title')} show={visible} onClose={hide} onOk={handleCloseConnections}>{t('closeAll.content')}</Modal>
             <Drawer className="connections-drawer" containerRef={cardRef} bodyClassName="flex flex-col" visible={drawerState.visible} width={450}>
                 <div className="h-8 flex items-center justify-between">
-                    <span className="pl-3 font-bold">{t('info.title')}</span>
+                    <span className="pl-3 font-medium">{t('info.title')}</span>
                     <Icon type="close" size={16} className="cursor-pointer" onClick={() => setDrawerState('visible', false)} />
                 </div>
                 <ConnectionInfo className="mt-3 px-5" connection={drawerState.connection} />
