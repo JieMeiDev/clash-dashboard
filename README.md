@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img src="https://github.com/Dreamacro/clash/raw/master/docs/logo.png" alt="Clash" width="200">
+    <img src="src/assets/logo.png" alt="Clash" width="200">
     <br>
     Clash Dashboard
     <br>
@@ -8,10 +8,22 @@
 <h4 align="center">Web Dashboard for Clash, now host on ClashX</h4>
 
 <p align="center">
-    <a href="https://github.com/Dreamacro/clash-dashboard/actions">
-        <img src="https://img.shields.io/github/actions/workflow/status/Dreamacro/clash-dashboard/ghpages.yml?branch=master&style=flat-square" alt="Github Actions">
+    <a href="https://github.com/JieMeiDev/clash-dashboard/actions">
+        <img src="https://img.shields.io/github/actions/workflow/status/JieMeiDev/clash-dashboard/ghpages.yml?branch=master&style=flat-square" alt="Github Actions">
+    </a>
+    <a href="https://github.com/JieMeiDev/clash-dashboard/blob/master/CHANGELOG.md">
+        <img src="https://img.shields.io/badge/version-0.1.1-blue?style=flat-square" alt="Version">
     </a>
 </p>
+
+> Custom fork based on the last upstream [Dreamacro/clash-dashboard](https://github.com/Dreamacro/clash-dashboard) release (archived mirror: [chmod777john/clash-dashboard](https://github.com/chmod777john/clash-dashboard)).
+
+## Custom changes (0.1.1)
+
+- Remove **Process** column on Connections (meaningless for transparent proxy)
+- **macOS dark mode** via `prefers-color-scheme`
+
+See [CHANGELOG.md](./CHANGELOG.md) for details.
 
 ## Features
 
@@ -19,10 +31,6 @@
   - Manage Proxies
   - Manage Proxy Groups
   - Realtime Log
-
-## Progress
-
-See [Projects](https://github.com/Dreamacro/clash-dashboard/projects)
 
 ### Start develop with ClashX(Dev Mode)
 
@@ -41,7 +49,7 @@ defaults delete com.west2online.ClashX webviewUrl
 
 ### Development Env
 
-This command will start Clash Dashboard at `http://localhost:8080/`
+This command will start Clash Dashboard at `http://localhost:3000/`
 
 ```bash
 $ pnpm start

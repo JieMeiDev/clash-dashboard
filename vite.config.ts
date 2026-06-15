@@ -19,7 +19,7 @@ export default defineConfig(
                 injectRegister: 'inline',
                 manifest: {
                     icons: [{
-                        src: '//cdn.jsdelivr.net/gh/Dreamacro/clash-dashboard/src/assets/Icon.png',
+                        src: 'icon.png',
                         sizes: '512x512',
                         type: 'image/png',
                     }],

@@ -19,6 +19,12 @@ Fork 自 [chmod777john/clash-dashboard](https://github.com/chmod777john/clash-da
 - **macOS 暗黑模式**：`src/styles/dark-mode.scss`，跟随 `prefers-color-scheme: dark`
 - `index.html` 增加 `color-scheme` 与分主题 `theme-color` meta
 
+### 修复
+
+- README logo 与 CI 徽章指向已删除的 `Dreamacro/*` 仓库，改为本仓库资源与 Actions
+- `index.html` favicon、PWA manifest 图标改为本地 `public/` 资源
+- GitHub Actions 移除无效的 `clash.razord.top` 部署域名，修复 workflow 权限
+
 ### 说明
 
 - 基于官方 `0.1.0`（`9a32d9d`，2023-09-26）
