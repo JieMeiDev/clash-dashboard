@@ -76,6 +76,11 @@
         "use-immer": "^0.9.0"
     },
     "pnpm": {
+        "onlyBuiltDependencies": [
+            "esbuild",
+            "@parcel/watcher",
+            "unrs-resolver"
+        ],
         "overrides": {
             "array-buffer-byte-length": "npm:@nolyfill/array-buffer-byte-length@latest",
             "array-includes": "npm:@nolyfill/array-includes@latest",

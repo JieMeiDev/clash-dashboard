@@ -1,5 +1,5 @@
 const EN = {
-    Proxies: {
+    SideBar: {
         Proxies: 'Proxies',
         Overview: 'Overview',
         Logs: 'Logs',
